@@ -1,6 +1,6 @@
 export class User{
-    constructor(public fname?:string,public lname?:string, public email?:string, public password?:string,
-        public dob?:string, public phoneno?:number){
+    constructor(public fName?:String,public lName?:String, public email?:String, public password?:String,
+        public dob?:String, public phoneNo?:number){
 
     }
-}
+} 

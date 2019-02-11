@@ -8,6 +8,7 @@ import { RegisterService } from './User/Register/register-service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HomeService } from './home/home.service';
 
 
 @NgModule({
@@ -19,12 +20,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot([
-      {path:'register', component: RegisterComponent}
-    ])
+    FormsModule
   ],
-  providers: [RegisterService, HttpClient],
+  providers: [HomeService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
