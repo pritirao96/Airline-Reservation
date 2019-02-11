@@ -69,13 +69,15 @@
             </form>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Register</button>
+              <a type="button" class="btn btn-secondary" data-dismiss="modal" [routerLink]="['/register']">Register</a>
+              <!-- <a [routerLink]="['/register']"></a> -->
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
     </div>
+    
   </section>
 
 </body>
