@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">Login <span
+            class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+Source:<input [(ngModel)]="flights.source" name="source" /><br />
+Destination:<input [(ngModel)]="flights.destination" name="destination" /><br />
+Date:<input [(ngModel)]="flights.date" name="date" /><br />
+
+
+<div class="panel">
+  <div class="panel-heading">{{ title }}</div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>flightno</th>
+            <th>source</th>
+            <th>Destination</th>
+            <th>Arrival Time</th>
+            <!-- <th>Departure Time</th> -->
+            <th>Duration</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody bgcolor='slateblue'>
+          <tr *ngFor="let f of flights">
+            <td>{{f.flightno}}</td>
+            <td>{{f.source}}</td>
+            <td>{{f.destination}}</td>
+            <td>{{f.arrivalTime}}</td>
+            <!-- <td>{{f.departTime}}</td> -->
+            <td>{{f.duration}}</td>
+            <td><button>Book</button></td>
+          </tr>
+
+        </tbody>
+      </table>
+      <button (click)="submit(source, destination)">Show Flights</button>
+    </div>
+  </div>
+</div>

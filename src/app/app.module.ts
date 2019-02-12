@@ -9,20 +9,22 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeService } from './home/home.service';
+import { SearchFlightComponent } from './search-flight/search-flight.component';
+import { searchFlightService } from './search-flight/search-flight-service';
 
 
 @NgModule({
   declarations: [
     AppComponent, 
     HomeComponent, 
-    RegisterComponent
+    RegisterComponent, SearchFlightComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule
   ],
-  providers: [HomeService, HttpClient],
+  providers: [HomeService, HttpClient,searchFlightService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
