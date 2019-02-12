@@ -6,10 +6,10 @@ import { HomeComponent } from './home/home.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomeService } from './home/home.service';
-import { SearchFlightComponent } from './search-flight/search-flight.component';
-import { searchFlightService } from './search-flight/search-flight-service';
+import { SearchFlightService } from './searchFlight/searchFlight-service';
 import { AdminDashBoardComponent } from './adminDashBoard/adminDashBoard.component';
 import { RouterModule } from '@angular/router';
+import { SearchFlightComponent } from './searchFlight/searchFlight.component';
 
 
 
@@ -28,7 +28,7 @@ import { RouterModule } from '@angular/router';
 
     ])
   ],
-  providers: [HomeService, HttpClient,searchFlightService],
+  providers: [HomeService, HttpClient,SearchFlightService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
