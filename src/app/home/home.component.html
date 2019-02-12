@@ -1,18 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand text-white">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">Login <span
+        <a class="nav-link" data-toggle="modal" data-target="#LoginModal">Login <span
             class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active">
+          <a class="nav-link" [routerLink] = "['/registration']">registration <span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" [routerLink] = "['/login']">Login <span
+                class="sr-only">(current)</span></a>
+          </li>
     </ul>
   </div>
 </nav>
+
+<router-outlet></router-outlet>
 
 <!-- <section class="container pad-tb">
     <div class="form-check form-check-inline">
@@ -25,14 +35,12 @@
     </div>
   </section> -->
 
-<section>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<!-- <section>
+  <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">LOGIN</h5>
+          <h5 class="modal-title" id="LoginTitle">LOGIN</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -40,15 +48,15 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input [(ngModel)]="users.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              <label for="ModalEmail">Email address</label>
+              <input [(ngModel)]="users.email" class="form-control" id="ModalEmail" aria-describedby="emailHelp"
                 placeholder="Enter email" name="email_add">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                 else.</small>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" [(ngModel)]="users.password" class="form-control" id="exampleInputPassword1"
+              <label for="ModalPassword">Password</label>
+              <input type="password" [(ngModel)]="users.password" class="form-control" id="ModalPassword"
                 placeholder="Password" name="password">
             </div>
             <button class="btn btn-primary" (click)="login()">Submit</button>
@@ -65,23 +73,28 @@
 
 
 <section>
-  <div class="container">
+  <div class="container py-5">
+
+    <h3>Registration Form</h3>
+    <br>
+    <br>
+
     <form #pform="ngForm" ngNativeValidate (ngSubmit)="register(mform)">
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label for="formGroupExampleInput">First-Name</label>
-            <input [(ngModel)]="users.fName" class="form-control" id="formGroupExampleInput"
-              placeholder="Enter first name" name="first_name" required>
+            <label for="FirstName">First-Name</label>
+            <input [(ngModel)]="users.fName" class="form-control" id="FirstName" placeholder="Enter first name"
+              name="first_name" required>
           </div>
           <div class="form-group">
-            <label for="formGroupExampleInput">Last-Name</label>
-            <input [(ngModel)]="users.lName" class="form-control" id="formGroupExampleInput"
-              placeholder="Enter last name" name="last_name" required>
+            <label for="LastName">Last-Name</label>
+            <input [(ngModel)]="users.lName" class="form-control" id="LastName" placeholder="Enter last name"
+              name="last_name" required>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input [(ngModel)]="users.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            <label for="RegistrationEmail">Email address</label>
+            <input [(ngModel)]="users.email" class="form-control" id="RegistrationEmail" aria-describedby="emailHelp"
               placeholder="Enter email" name="email_add" required>
           </div>
           <div class="form-group">
@@ -96,14 +109,14 @@
             <input type="password" class="form-control" id="conf-pswd" placeholder="Password" name="conf_pass" required>
           </div>
           <div class="form-group">
-            <label for="formGroupExampleInput">Date of birth</label>
-            <input type="date" [(ngModel)]="users.dob" class="form-control" id="formGroupExampleInput" placeholder="dob"
+            <label for="DateOfBirth">Date of birth</label>
+            <input type="date" [(ngModel)]="users.dob" class="form-control" id="DateOfBirth" placeholder="dob"
               name="dob" required>
           </div>
           <div class="form-group">
-            <label for="formGroupExampleInput">Phone Number</label>
-            <input type="number" min="6" max="10" [(ngModel)]="users.phoneNo" class="form-control"
-              id="formGroupExampleInput" placeholder="phone number" name="phone_number" required>
+            <label for="PhoneNo">Phone Number</label>
+            <input type="number" min="6" max="10" [(ngModel)]="users.phoneNo" class="form-control" id="PhoneNo"
+              placeholder="phone number" name="phone_number" required>
           </div>
         </div>
       </div>
@@ -136,4 +149,4 @@
     </form>
   </div>
 
-</section>
+</section> -->

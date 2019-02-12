@@ -9,6 +9,7 @@ import { HomeService } from './home/home.service';
 import { SearchFlightComponent } from './search-flight/search-flight.component';
 import { searchFlightService } from './search-flight/search-flight-service';
 import { AdminDashBoardComponent } from './adminDashBoard/adminDashBoard.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -20,7 +21,12 @@ import { AdminDashBoardComponent } from './adminDashBoard/adminDashBoard.compone
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {path: 'registration', component: HomeComponent},
+      {path: 'login', component: SearchFlightComponent},
+
+    ])
   ],
   providers: [HomeService, HttpClient,searchFlightService],
   bootstrap: [AppComponent]
