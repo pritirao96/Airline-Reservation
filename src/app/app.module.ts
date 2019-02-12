@@ -6,15 +6,16 @@ import { HomeComponent } from './home/home.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomeService } from './home/home.service';
-import { SearchFlightComponent } from './searchFlight/searchFlight.component';
 import { SearchFlightService } from './searchFlight/searchFlight-service';
+import { AdminDashBoardComponent } from './adminDashBoard/adminDashBoard.component';
+import { SearchFlightComponent } from './searchFlight/searchFlight.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent, 
-    HomeComponent,
-    SearchFlightComponent
+    HomeComponent, SearchFlightComponent, AdminDashBoardComponent
   ],
   imports: [
     BrowserModule,

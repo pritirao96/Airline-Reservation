@@ -15,7 +15,7 @@ export class HomeComponent {
 
   }
 
-  register(){
+  register(mform){
     let url = "http://localhost:9024/addUser";
     console.log(this.users);
     this.rs.retriveFromServer(url , this.users).subscribe(data => {
