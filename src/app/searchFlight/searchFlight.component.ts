@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { searchFlightService } from './search-flight-service';
-import { SearchFlight } from './search-flight';
+import { SearchFlightService } from './searchFlight-service';
+import { SearchFlight } from './searchFlight';
 
 @Component({
-  selector: 'app-search-flight',
-  templateUrl: './search-flight.component.html',
-  styleUrls: ['./search-flight.component.css']
+  selector: 'searchFlight',
+  templateUrl: './searchFlight.component.html',
+  styleUrls: ['./searchFlight.component.css']
 })
 
 export class SearchFlightComponent implements OnInit {
 
   title: String = "List of flights"
   flights: SearchFlight[]
-  constructor(public fs:searchFlightService) { }
+  constructor(public fs:SearchFlightService) { }
 
   ngOnInit() {
   }

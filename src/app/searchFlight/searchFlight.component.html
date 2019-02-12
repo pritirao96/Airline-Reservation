@@ -13,11 +13,38 @@
     </ul>
   </div>
 </nav>
+<div class="container">
+  <div class="row">
+    <div class="col-25">
+        <label for="formGroupExampleInput">Source</label>
+    </div>
+    <div class="col-75">
+        <input [(ngModel)]="flights.source" class="form-control" id="formGroupExampleInput"
+        placeholder="Enter source" name="source" required>
+    </div>
+  </div>
 
-Source:<input [(ngModel)]="flights.source" name="source" /><br />
-Destination:<input [(ngModel)]="flights.destination" name="destination" /><br />
-Date:<input [(ngModel)]="flights.date" name="date" /><br />
+  <div class="row">
+    <div class="col-25">
+      <label for="formGroupExampleInput">Destination</label>
+    </div>
+    <div class="col-75"> 
+      <input [(ngModel)]="flights.destination" class="form-control" id="formGroupExampleInput"
+    placeholder="Enter destination" name="destination" required>
+    </div> 
+  </div>
 
+  <div class="row">
+    <div class="col-25">  
+      <label for="formGroupExampleInput">Date</label>
+    </div>
+    <div class="col-75">
+      <input type="date" [(ngModel)]="flights.date" class="form-control" id="formGroupExampleInput"
+    placeholder="select date" name="date" required>
+    </div>  
+  </div>
+</div>
+<button (click)="submit(source, destination)">Show Flights</button><br/>
 
 <div class="panel">
   <div class="panel-heading">{{ title }}</div>
@@ -49,7 +76,6 @@ Date:<input [(ngModel)]="flights.date" name="date" /><br />
 
         </tbody>
       </table>
-      <button (click)="submit(source, destination)">Show Flights</button>
     </div>
   </div>
 </div>

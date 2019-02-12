@@ -1,15 +1,15 @@
 import { Component, Injectable } from "@angular/core";
-import { SearchFlight } from './search-flight';
+import { SearchFlight } from './searchFlight';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Component({
-    selector:'search-flight',
-    templateUrl:'./search-flight.component.html'
+    selector:'searchFlight',
+    templateUrl:'./searchFlight.component.html'
 })
 
 @Injectable()
-export class searchFlightService{
+export class SearchFlightService{
     flights: SearchFlight[]
 
     constructor(private http:HttpClient) {
