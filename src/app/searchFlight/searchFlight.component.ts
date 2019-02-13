@@ -18,12 +18,13 @@ export class SearchFlightComponent implements OnInit {
   }
 
   submit( source, destination) {
-    let url = "http://localhost:9024/searchFlight";
+    //  let url="http://localhost:8084/flight/Chennai/Banglore"
+   let url = "http://localhost:8084/flight/"+source+"/"+destination;
     console.log(url);
     this.fs.retriveFromServer(url).subscribe(
       data => {
         this.flights = data;
-        //console.log(data);
+        console.log(this.flights);
       });
   }
 }

@@ -1,19 +1,19 @@
 import { Injectable } from "@angular/core";
-import { User } from '../user';
 import { HttpClient} from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { User } from '../user';
+
 
 @Injectable()
-export class RegisterService{
+export class RegistrationService{
     
     users: User[];
     
     constructor(private http:HttpClient) {
 
     }
-    retriveFromServer(url): Observable<User[]> {
+    retriveFromServer(url, user){
 
-      return this.http.get<User[]>(url);
+      return this.http.post(url, user);
       
     }
 }

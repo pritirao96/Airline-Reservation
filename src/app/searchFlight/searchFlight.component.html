@@ -1,37 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">Login <span
-            class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-  </div>
-</nav>
 <div class="container">
   <div class="row">
     <div class="col-25">
-        <label for="formGroupExampleInput">Source</label>
+      <label for="source">Source</label>
     </div>
     <div class="col-75">
-        <input [(ngModel)]="flights.source" class="form-control" id="formGroupExampleInput"
-        placeholder="Enter source" name="source" required>
+      <input [(ngModel)]="source" class="form-control" id="source" placeholder="Enter source" name="flight_source"
+        required>
     </div>
   </div>
 
   <div class="row">
     <div class="col-25">
-      <label for="formGroupExampleInput">Destination</label>
+      <label for="destination">Destination</label>
     </div>
-    <div class="col-75"> 
-      <input [(ngModel)]="flights.destination" class="form-control" id="formGroupExampleInput"
-    placeholder="Enter destination" name="destination" required>
-    </div> 
+    <div class="col-75">
+      <input [(ngModel)]="destination" class="form-control" id="destination" placeholder="Enter destination"
+        name="flight_destination" required>
+    </div>
   </div>
 
   <!-- <div class="row">
@@ -44,7 +29,7 @@
     </div>  
   </div> -->
 </div>
-<button (click)="submit(source, destination)">Show Flights</button><br/>
+<button (click)="submit(source, destination)">Show Flights</button><br />
 
 <div class="panel">
   <div class="panel-heading">{{ title }}</div>
@@ -57,23 +42,22 @@
             <th>source</th>
             <th>Destination</th>
             <th>Arrival Time</th>
-            <!-- <th>Departure Time</th> -->
+            <th>Departure Time</th>
             <th>Duration</th>
             <th></th>
           </tr>
         </thead>
 
-        <tbody bgcolor='slateblue'>
+        <tbody>
           <tr *ngFor="let f of flights">
-            <td>{{f.flightno}}</td>
+            <td>{{f.flightNumber}}</td>
             <td>{{f.source}}</td>
             <td>{{f.destination}}</td>
             <td>{{f.arrivalTime}}</td>
-            <!-- <td>{{f.departTime}}</td> -->
+            <td>{{f.departureTime}}</td>
             <td>{{f.duration}}</td>
             <td><button>Book</button></td>
           </tr>
-
         </tbody>
       </table>
     </div>

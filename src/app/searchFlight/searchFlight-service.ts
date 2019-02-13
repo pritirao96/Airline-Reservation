@@ -4,20 +4,20 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Component({
-    selector:'searchFlight',
-    templateUrl:'./searchFlight.component.html'
+  selector: 'searchFlight',
+  templateUrl: './searchFlight.component.html'
 })
 
 @Injectable()
-export class SearchFlightService{
-    flights: SearchFlight[]
+export class SearchFlightService {
+  flights: SearchFlight[]
 
-    constructor(private http:HttpClient) {
+  constructor(private http: HttpClient) {
 
-    }
+  }
 
-    retriveFromServer(url): Observable<SearchFlight[]> {
-        return this.http.get<SearchFlight[]>(url)
-    }
+  retriveFromServer(url): Observable<SearchFlight[]> {
+    return this.http.get<SearchFlight[]>(url)
+  }
 }
-    
+

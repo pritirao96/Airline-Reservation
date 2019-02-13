@@ -1,10 +1,10 @@
-export class SearchFlight{
-    constructor(public flightNo?: number, 
-        public source?:String, 
-        public destination?:String,
-        public arrivalTime?:String,
-        public departTime?:String,
-        public duration?:String){
+export class SearchFlight {
+  constructor(public flightNumber?: number,
+    public source?: String,
+    public destination?: String,
+    public arrivalTime?: String,
+    public departureTime?: String,
+    public duration?: String) {
 
-    }
+  }
 }

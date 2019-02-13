@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient} from "@angular/common/http";
 import { Observable } from 'rxjs';
-import { User } from '../User/user';
+import { User } from '../user';
+
 
 @Injectable()
-export class HomeService{
+export class LoginService{
     
     users: User[];
     
