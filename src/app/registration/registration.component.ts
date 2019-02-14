@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { RegistrationService } from './registration.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
   users: User = new User();
+  response: string;
 
   keyPress(event: any) {
     const pattern = /[0-9\+\-\ ]/;
@@ -20,7 +22,7 @@ export class RegistrationComponent implements OnInit {
     }
   }
 
-  constructor(public rs: RegistrationService) { }
+  constructor(public rs: RegistrationService, private router: Router) { }
 
   regForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
@@ -41,7 +43,14 @@ export class RegistrationComponent implements OnInit {
     console.log(this.users);
     this.rs.retriveFromServer(url, this.users).subscribe(data => {
       console.log(data);
+      this.response = data['status'];
 
+      if(this.response === 'registration successfully!') {
+        this.router.navigate(['./user_login']);
+      }
+      else{
+        this.router.navigate(['./registration']);
+      }
     });
   }
 }
