@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchFlightService } from './searchFlight-service';
-import { SearchFlight } from './searchFlight';
+import { Flight } from '../flight';
 
 @Component({
   selector: 'searchFlight',
@@ -11,7 +11,7 @@ import { SearchFlight } from './searchFlight';
 export class SearchFlightComponent implements OnInit {
 
   title: String = "List of flights"
-  flights: SearchFlight[]
+  flights: Flight[]
   constructor(public fs:SearchFlightService) { }
 
   ngOnInit() {

@@ -1,0 +1,29 @@
+<div class="container py-5">
+
+  <h3>Admin Login Form</h3>
+
+  <form name="adminForm" [formGroup]="adminForm">
+    <div class="form-group">
+      <label for="password">Email address</label>
+      <input [(ngModel)]="admins.emailId" class="form-control" formControlName="email" id="password"
+        aria-describedby="emailHelp" placeholder="Enter email" name="email_add"
+        [ngClass]="{'is-invalid': adminForm.get('email').touched && adminForm.get('email').invalid}">
+      <div *ngIf="adminForm.get('email').touched && adminForm.get('email').invalid" class="invalid-feedback">
+        <div *ngIf="adminForm.get('email').errors.required">Email is required</div>
+        <div *ngIf="adminForm.get('email').errors.email">Email must be a valid email</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="ModalPassword">Password</label>
+      <input type="password" [(ngModel)]="admins.password" class="form-control" formControlName="password"
+        id="ModalPassword" placeholder="Password" name="password"
+        [ngClass]="{'is-invalid': adminForm.get('password').touched && adminForm.get('password').invalid}">
+      <div *ngIf="adminForm.get('password').touched && adminForm.get('password').invalid" class="invalid-feedback">
+        <div *ngIf="adminForm.get('password').errors.required">Password is required</div>
+        <div *ngIf="adminForm.get('password').errors.minlength">Password must be atleast 8 numeric values</div>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="login()" [disabled]="!adminForm.valid">Submit</button>
+  </form>
+
+</div>

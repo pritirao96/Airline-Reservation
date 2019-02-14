@@ -4,7 +4,7 @@
       <label for="source">Source</label>
     </div>
     <div class="col-75">
-      <input [(ngModel)]="source" class="form-control" id="source" placeholder="Enter source" name="flight_source"
+      <input type ="text" class="form-control" id="source" placeholder="Enter source" name="flight_source"
         required>
     </div>
   </div>
@@ -14,20 +14,20 @@
       <label for="destination">Destination</label>
     </div>
     <div class="col-75">
-      <input [(ngModel)]="destination" class="form-control" id="destination" placeholder="Enter destination"
+      <input type="text" class="form-control" id="destination" placeholder="Enter destination"
         name="flight_destination" required>
     </div>
   </div>
 
-  <!-- <div class="row">
+  <div class="row">
     <div class="col-25">  
       <label for="formGroupExampleInput">Date</label>
     </div>
     <div class="col-75">
-      <input type="date" [(ngModel)]="flights.date" class="form-control" id="formGroupExampleInput"
+      <input type="date" class="form-control" id="formGroupExampleInput"
     placeholder="select date" name="date" required>
     </div>  
-  </div> -->
+  </div>
 </div>
 <button (click)="submit(source, destination)">Show Flights</button><br />
 

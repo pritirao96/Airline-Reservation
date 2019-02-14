@@ -5,6 +5,6 @@ export class User {
       public email?: string,
       public password?: string,
       public dob?: string,
-      public phoneno?: number) {
+      public phoneNo?: number) {
   }
 }

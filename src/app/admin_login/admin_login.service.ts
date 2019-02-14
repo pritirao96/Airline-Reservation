@@ -1,20 +1,18 @@
 import { Injectable } from "@angular/core";
 import { HttpClient} from "@angular/common/http";
-import { User } from '../user';
-
+import { Admin } from '../admin';
 
 @Injectable()
-export class RegistrationService{
+export class AdminLoginService{
     
-    users: User[];
-    url: String
+    admins: Admin[];
     
     constructor(private http:HttpClient) {
 
     }
-    retriveFromServer(url, users){
+    retriveFromServer(url, admin){
 
-      return this.http.post(url, users);
+      return this.http.post(url, admin);
       
     }
 }

@@ -1,7 +1,7 @@
 import { Component, Injectable } from "@angular/core";
-import { SearchFlight } from './searchFlight';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Flight } from '../flight';
 
 @Component({
   selector: 'searchFlight',
@@ -10,14 +10,14 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class SearchFlightService {
-  flights: SearchFlight[]
+  flights: Flight[]
 
   constructor(private http: HttpClient) {
 
   }
 
-  retriveFromServer(url): Observable<SearchFlight[]> {
-    return this.http.get<SearchFlight[]>(url)
+  retriveFromServer(url): Observable<Flight[]> {
+    return this.http.get<Flight[]>(url)
   }
 }
 

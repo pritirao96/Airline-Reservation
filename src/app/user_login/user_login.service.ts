@@ -5,7 +5,7 @@ import { User } from '../user';
 
 
 @Injectable()
-export class LoginService{
+export class UserLoginService{
     
     users: User[];
     
