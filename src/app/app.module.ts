@@ -14,10 +14,11 @@ import { UserLoginService } from './user_login/user_login.service';
 import { AdminLoginComponent } from './admin_login/admin_login.component';
 import { AdminLoginService } from './admin_login/admin_login.service';
 import { AdminDashBoardService } from './adminDashBoard/adminDashBoard.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent, SearchFlightComponent, AdminDashBoardComponent, RegistrationComponent, UserLoginComponent, AdminLoginComponent
+    AppComponent, SearchFlightComponent, AdminDashBoardComponent, RegistrationComponent, UserLoginComponent, AdminLoginComponent, HomeComponent
   ],
   imports: [
     BrowserModule,
