@@ -12,9 +12,8 @@ export class UserLoginService{
     constructor(private http:HttpClient) {
 
     }
-    retriveFromServer(url, user){
-
-      return this.http.post(url, user);
-      
+    retriveFromServer(users:User) : Observable<object>{
+      let url = "http://localhost:8084/user/verify";
+      return this.http.post(url, users);
     }
 }

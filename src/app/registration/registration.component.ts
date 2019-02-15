@@ -39,13 +39,14 @@ export class RegistrationComponent implements OnInit {
   }
 
   register(pform) {
-    let url = "http://localhost:8084/addUser";
+   
     console.log(this.users);
-    this.rs.retriveFromServer(url, this.users).subscribe(data => {
+    this.rs.retriveFromServer(this.users).subscribe(data => {
       console.log(data);
-      this.response = data['status'];
+      this.response = data.toString();
+      var check=this.response;
 
-      if(this.response === 'registration successfully!') {
+      if(check == "true") {
         this.router.navigate(['./user_login']);
       }
       else{

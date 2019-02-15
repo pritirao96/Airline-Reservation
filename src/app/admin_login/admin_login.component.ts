@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminLoginService } from './admin_login.service';
 import { Admin } from '../admin';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'adminLogin',
@@ -10,7 +11,8 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 })
 export class AdminLoginComponent implements OnInit {
   admins: Admin = new Admin();
-  constructor(private rs: AdminLoginService) { }
+  response: string;
+  constructor(private rs: AdminLoginService, private router: Router) { }
 
   adminForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -21,9 +23,18 @@ export class AdminLoginComponent implements OnInit {
   }
 
   login() {
-    let url = "http://localhost:8084/admin/verify";
-    this.rs.retriveFromServer(url, this.admins).subscribe(data => {
-      alert(data);
+   
+    this.rs.retriveFromServer(this.admins).subscribe(data => {
+      console.log(data);
+      this.response = data.toString();
+      var check=this.response;
+
+      if(check == "true") {
+        this.router.navigate(['./admin_dashBoard']);
+      }
+      else{
+        this.router.navigate(['./admin_login']);
+      }
     });
     //console.log("verified");
   }

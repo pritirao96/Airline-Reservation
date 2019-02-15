@@ -37,7 +37,7 @@
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete-modal">Delete</button>
 
   <!-- Delete Modal Start -->
-  <!-- <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
+  <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -60,12 +60,12 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
   <!-- Delete Modal Start -->
 
   <!-- Add Flight Form Start -->
 
-  <!-- <form #pform="ngForm" ngNativeValidate (ngSubmit)="add(pform)">
+  <form #pform="ngForm" ngNativeValidate (ngSubmit)="add(pform)">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -85,30 +85,35 @@
         </div>
         <div class="form-group">
           <label for="arrival_time">Arrival Time</label>
-          <input [(ngModel)]="flights.arrivalTime" class="form-control" id="arrival_time" placeholder="Password"
+          <input type="time" [(ngModel)]="flights.arrivalTime" class="form-control" id="arrival_time" placeholder="Password"
             name="arrival_time" required>
         </div>
         <div class="form-group">
           <label for="departure_time">Departure Time</label>
-          <input [(ngModel)]="flights.departureTime" class="form-control" id="departure_time" placeholder="Password"
+          <input type="time" [(ngModel)]="flights.departureTime" class="form-control" id="departure_time" placeholder="Password"
             name="departure_time" required>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="duration">Duration</label>
-          <input [(ngModel)]="flights.duration" class="form-control" id="duration" placeholder="Password"
+          <input type="time" [(ngModel)]="flights.duration" class="form-control" id="duration" placeholder="Password"
+            name="duration" required>
+        </div>
+        <div class="form-group">
+          <label for="duration">Flight Date</label>
+          <input type="date" [(ngModel)]="flights.flightdate" class="form-control" id="duration" placeholder="Password"
             name="duration" required>
         </div>
         <div class="form-group">
           <label for="Price">Price</label>
-          <input [(ngModel)]="flightPrice.flightPrice" class="form-control" id="Price" placeholder="Password" name="duration" required>
+          <input [(ngModel)]="flights.pricePerSeat" class="form-control" id="Price" placeholder="Password" name="duration" required>
         </div>
       </div>
     </div>
 
     <button class="btn btn-primary">Add</button>
-  </form> -->
+  </form>
 
   <!-- Add Flight Form End -->
 

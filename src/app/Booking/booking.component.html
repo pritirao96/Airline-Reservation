@@ -1,0 +1,23 @@
+<form ngNativeValidate #rform= "ngForm" (ngSubmit)= "store()">
+        <div class="container">
+          <h2>Enter Passenger Details</h2>
+          
+          <div *ngFor="let p of passengers; let i = index;">
+          <label for="name"><b>Passenger Name</b></label>
+          <input type="text" placeholder="Enter Passenger Name" title="Only alphabets are allowed" name="name" [(ngModel)] = "passengers[i].fullname" pattern="[^0-9]*" required >
+          
+          <label for="seatNumber"><b>Enter Seat Number</b></label>
+          <input type="text" placeholder="Enter Seat Number" name="seatNumber" [(ngModel)] ="passengers[i].seatNumber" required>
+
+          <label for="gender"><b>Gender</b></label>&nbsp;
+          <input type="radio" name="gender" value="Male" [(ngModel)] = "passengers[i].gender" required>Male<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="gender" value="Female" [(ngModel)] = "passengers.gender" required>Female<br><br>
+
+          <label for="age"><b>Age</b></label>
+          <input type="text" placeholder="Enter Age" name="mobile" [(ngModel)] = "passengers[i].age" minlength="1" maxlength="2" required (keypress)="keyPress($event)">
+  
+        </div>
+ 
+        <button type="submit" class="registerbtn" routerLink="/home-page" >Proceed to book</button>
+      </div>
+</form>  

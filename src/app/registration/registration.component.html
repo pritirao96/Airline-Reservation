@@ -8,7 +8,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="firstName">First-Name</label>
-            <input [(ngModel)]="users.fName" class="form-control" formControlName="firstName" id="firstName"
+            <input [(ngModel)]="users.fName" pattern="[A-Za-z]*" class="form-control" formControlName="firstName" id="firstName"
               placeholder="Enter first name" name="first_name"
               [ngClass]="{'is-invalid': regForm.get('firstName').touched && regForm.get('firstName').invalid}">
             <div class="invalid-feedback">
@@ -17,7 +17,7 @@
           </div>
           <div class="form-group">
             <label for="lastName">Last-Name</label>
-            <input [(ngModel)]="users.lName" class="form-control" formControlName="lastName" id="lastName"
+            <input [(ngModel)]="users.lName" pattern="[A-Za-z]*" class="form-control" formControlName="lastName" id="lastName"
               placeholder="Enter last name" name="last_name"
               [ngClass]="{'is-invalid': regForm.get('lastName').touched && regForm.get('lastName').invalid}">
             <div class="invalid-feedback">

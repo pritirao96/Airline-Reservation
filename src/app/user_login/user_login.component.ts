@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserLoginService } from './user_login.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'userLogin',
@@ -10,7 +12,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class UserLoginComponent implements OnInit {
   users: User = new User();
-  constructor(private rs: UserLoginService) { }
+  response: string;
+  constructor(private rs: UserLoginService, private router: Router) { }
 
   userForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -21,10 +24,19 @@ export class UserLoginComponent implements OnInit {
   }
 
   login() {
-    let url = "http://localhost:8084/user/verify";
-    this.rs.retriveFromServer(url, this.users).subscribe(data => {
-      //console.log(data);
+    window.localStorage.setItem('userDetails',JSON.stringify({token: this.users , name:'userDetails'}))
+    console.log(this.users);
+    this.rs.retriveFromServer(this.users).subscribe(data => {
+      console.log(data);
+      this.response = data.toString();
+      var check=this.response;
+
+      if(check == "true") {
+        this.router.navigate(['./']);
+      }
+      else{
+        this.router.navigate(['./user_login']);
+      }
     });
-    //console.log("verified");
   }
 }

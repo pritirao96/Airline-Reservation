@@ -14,26 +14,34 @@ import { UserLoginService } from './user_login/user_login.service';
 import { AdminLoginComponent } from './admin_login/admin_login.component';
 import { AdminLoginService } from './admin_login/admin_login.service';
 import { AdminDashBoardService } from './adminDashBoard/adminDashBoard.service';
-import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { ConfirmBookingComponent } from './Booking/confirm.component';
+import { SeatBookingComponent } from './Booking/seats.component';
+import { UserBookingComponent } from './Booking/booking.component';
+import { PassengerService } from './Booking/booking-service';
 
 @NgModule({
   declarations: [
-    AppComponent, SearchFlightComponent, AdminDashBoardComponent, RegistrationComponent, UserLoginComponent, AdminLoginComponent, HomeComponent
+    AppComponent, SearchFlightComponent, AdminDashBoardComponent, RegistrationComponent, UserLoginComponent, AdminLoginComponent, HeaderComponent,UserBookingComponent,
+    SeatBookingComponent, ConfirmBookingComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     FormsModule,
     RouterModule.forRoot([
+      { path: '', component: SearchFlightComponent },
       { path: 'registration', component: RegistrationComponent },
       { path: 'user_login', component: UserLoginComponent },
       { path: 'admin_login', component: AdminLoginComponent },
-      { path: 'search_flight', component: SearchFlightComponent },
       { path: 'admin_dashBoard', component: AdminDashBoardComponent },
+      { path: 'seats-page', component: SeatBookingComponent},
+      { path: 'confirm-page', component: ConfirmBookingComponent},
+      { path: 'booking', component: UserBookingComponent}
     ])
   ],
-  providers: [HttpClient, SearchFlightService, RegistrationService, UserLoginService, AdminLoginService,
+  providers: [HttpClient, SearchFlightService, RegistrationService, UserLoginService, PassengerService,  AdminLoginService,
   AdminDashBoardService],
   bootstrap: [AppComponent]
 })

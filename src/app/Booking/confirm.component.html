@@ -1,0 +1,30 @@
+
+<div class="panel"> 
+    <div class="panel-heading">{{ title }}</div>
+       <div class="panel-body">
+           <div class="container">
+                <h2>Confirm Details</h2>
+               <table class="table table-dark">
+                   <thead >
+                       <tr>
+                           <th>Bus ID</th>
+                           <th>Date Of Booking</th>
+                           <th>Gender</th>
+                           <th>Mobile</th>
+                           <th>Email</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr *ngFor='let u of users'>
+                           <td>{{u.fullname}}</td>
+                           <td>{{u.dateOfBirth}}</td>
+                           <td>{{u.gender}}</td>
+                           <td>{{u.mobile}}</td>
+                           <td>{{u.email}}</td>
+                           <td>{{u.Address}}</td>
+                       </tr>
+                   </tbody>
+                </table>
+           </div>
+       </div>
+   </div>

@@ -10,8 +10,7 @@ import { FlightPrice } from '../flightprice';
 })
 export class AdminDashBoardComponent implements OnInit {
 
-  flights: Flight[]
-  // flightPrice: FlightPrice
+  flights: Flight[];
   constructor(private as: AdminDashBoardService) { }
 
   ngOnInit() {

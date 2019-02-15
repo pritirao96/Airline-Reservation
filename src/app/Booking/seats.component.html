@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>Enter Booking Details</h2>
+
+    <label for="noOfSeats"><b>Enter Number of Seats</b></label>
+    <input type="text" placeholder="Enter Number of seats" name="noOfSeats" [(ngModel)] ="seats" required>
+
+    <button type="submit" class="registerbtn" (click)="addPassengers()">Add Passengers</button>
+</div>
+<router-outlet></router-outlet>
+
+

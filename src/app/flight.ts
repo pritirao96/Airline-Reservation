@@ -1,4 +1,3 @@
-import { FlightPrice } from './flightprice';
 import { Time } from '@angular/common';
 
 export class Flight {
@@ -9,7 +8,7 @@ export class Flight {
     private departureTime: Time,
     private flightdate:String,
     private duration: Time,
-    //private flightPrice: FlightPrice
+    private pricePerSeat: number
     ) {
 
   }
