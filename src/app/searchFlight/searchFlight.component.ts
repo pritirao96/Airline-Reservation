@@ -17,13 +17,13 @@ export class SearchFlightComponent implements OnInit {
   source: String;
   destination: String;
 
-  constructor(public fs:SearchFlightService) { }
+  constructor(public fs: SearchFlightService) { }
 
   ngOnInit() {
   }
 
-  submit(source, destination,flightdate) {
-   let url = "http://localhost:8084/flight/"+source+"/"+destination+"/"+flightdate;
+  submit(source, destination, flightdate) {
+    let url = "http://localhost:8084/flight/" + source + "/" + destination + "/" + flightdate;
     console.log(url);
     this.fs.retriveFromServer(url).subscribe(
       data => {
