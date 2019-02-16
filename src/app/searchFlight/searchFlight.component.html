@@ -4,8 +4,8 @@
       <label for="source">Source</label>
     </div>
     <div class="col-75">
-      <input type="text" [(ngModel)]="source" class="form-control" id="source" placeholder="Enter source" 
-      name="flight_source" required>
+      <input type="text" [(ngModel)]="source" class="form-control" id="source" placeholder="Enter source"
+        name="flight_source" required>
     </div>
   </div>
 
@@ -20,48 +20,50 @@
   </div>
 
   <div class="row">
-    <div class="col-25">  
+    <div class="col-25">
       <label for="Date">Date</label>
     </div>
     <div class="col-75">
-      <input type="date" [(ngModel)]="flightdate" class="form-control" id="Date"
-    placeholder="select date" name="date" required>
-    </div>  
+      <input type="date" [(ngModel)]="flightdate" class="form-control" id="Date" placeholder="select date" name="date"
+        required>
+    </div>
   </div>
 </div>
-<button (click)="submit(source,destination,flightdate)">Show Flights</button><br />
+<button class="" (click)="submit(source,destination,flightdate)">Show Flights</button><br />
 
-<div class="panel">
-  <div class="panel-heading">{{ title }}</div>
-  <div class="panel-body">
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>flightno</th>
-            <th>source</th>
-            <th>Destination</th>
-            <th>Arrival Time</th>
-            <th>Departure Time</th>
-            <th>Duration</th>
-            <th>Flight Date</th>
-            <th></th>
-          </tr>
-        </thead>
+<div class="container">
+  <div class="panel">
+    <div class="panel-heading text-center"><strong>{{ title }}</strong></div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Flight No.</th>
+              <th>Source</th>
+              <th>Destination</th>
+              <th>Arrival Time</th>
+              <th>Departure Time</th>
+              <th>Duration</th>
+              <th>Flight Date</th>
+              <th></th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <tr *ngFor="let f of flights">
-            <td>{{f.flightNumber}}</td>
-            <td>{{f.source}}</td>
-            <td>{{f.destination}}</td>
-            <td>{{f.arrivalTime}}</td>
-            <td>{{f.departureTime}}</td>
-            <td>{{f.duration}}</td>
-            <td>{{f.flightdate}}</td>
-            <td><button>Book</button></td>
-          </tr>
-        </tbody>
-      </table>
+          <tbody>
+            <tr *ngFor="let f of flights">
+              <td>{{f.flightNumber}}</td>
+              <td>{{f.source}}</td>
+              <td>{{f.destination}}</td>
+              <td>{{f.arrivalTime}}</td>
+              <td>{{f.departureTime}}</td>
+              <td>{{f.duration}}</td>
+              <td>{{f.flightdate}}</td>
+              <td><button>Book</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
