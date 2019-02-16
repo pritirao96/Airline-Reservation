@@ -1,0 +1,21 @@
+<div class="container">
+  <form ngNativeValidate #amtForm="ngForm">
+    <h3>Registration Form</h3>
+    <br>
+    <br>
+    <div class="form-group">
+      <label for="cardNo">Card Number</label>
+      <input type="number" class="form-control" id="cardNo" (keypress)="keyPress($event)" placeholder="Enter card number">
+    </div>
+    <div class="form-group">
+      <label for="nameOnCard">Name on Card</label>
+      <input type="text" class="form-control" id="nameOnCard" pattern="[A-Za-z]*" placeholder="Enter Name On the Card">
+    </div>
+    <div class="form-group">
+      <label for="amount">Amount to be paid</label>
+      <!-- <p>{{}}</p> -->
+    </div>
+    <button type="submit" class="btn btn-primary">Confirm</button>
+    <button type="submit" class="btn btn-primary" [routerLink]="['/searchFlight']">Cancel</button>
+  </form>
+</div>

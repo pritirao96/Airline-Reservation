@@ -1,14 +1,14 @@
-import { Time } from '@angular/common';
+import { FlightPrice } from './flightprice';
 
 export class Flight {
   constructor(private flightNumber: number,
     private source: String,
     private destination: String,
-    private arrivalTime: Time,
-    private departureTime: Time,
-    private flightdate:String,
-    private duration: Time,
-    private pricePerSeat: number
+    private arrivalTime: String,
+    private departureTime: String,
+    private flightDate:Date,
+    private duration: String,
+    private flightPrice: FlightPrice
     ) {
 
   }

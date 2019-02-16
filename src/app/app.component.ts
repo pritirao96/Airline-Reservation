@@ -7,7 +7,7 @@ import { User } from './user';
   styles: []
 })
 export class AppComponent implements OnInit{
-  title = 'airlines';
+  title = 'Breeze Airlines';
   msg='login';
   users: User= new User();
   

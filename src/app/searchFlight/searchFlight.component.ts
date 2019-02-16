@@ -27,12 +27,14 @@ export class SearchFlightComponent implements OnInit {
 
   submit(source, destination, flightdate) {
     this.users = JSON.parse(localStorage.getItem('userDetails'))['token'];
-    console.log(this.users.fName);
+    //console.log(this.users.fName);
     let url = "http://localhost:8084/flight/" + source + "/" + destination + "/" + flightdate;
     console.log(url);
     this.fs.retriveFromServer(url).subscribe(
       data => {
         this.flights = data;
+        console.log(data);
+        
       });
   }
 

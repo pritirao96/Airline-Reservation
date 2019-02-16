@@ -17,7 +17,9 @@ export class SearchFlightService {
   }
 
   retriveFromServer(url): Observable<Flight[]> {
-    return this.http.get<Flight[]>(url)
+    console.log(this.http.get<Flight[]>(url));
+    return this.http.get<Flight[]>(url);
+
   }
 }
 
