@@ -26,7 +26,7 @@ export class SearchFlightComponent implements OnInit {
   }
 
   submit(source, destination, flightdate) {
-    this.users = JSON.parse(localStorage.getItem('userDetails'))['token'];
+    //this.users = JSON.parse(localStorage.getItem('userDetails'))['token'];
     //console.log(this.users.fName);
     let url = "http://localhost:8084/flight/" + source + "/" + destination + "/" + flightdate;
     console.log(url);
@@ -39,7 +39,7 @@ export class SearchFlightComponent implements OnInit {
   }
 
   divert(){
-    if(JSON.parse(localStorage.getItem('userDetails'))['token']!=null){
+    if(localStorage.getItem('userDetails')!=null){
       this.router.navigate(['./admin_dashBoard']);
     }
     else{

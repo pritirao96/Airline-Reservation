@@ -1,69 +1,61 @@
-<div class="container bgstyle">
-  <div class="row">
-    <div class="col-25">
-      <label for="source">Source</label>
-    </div>
-    <div class="col-75">
-      <input type="text" [(ngModel)]="source" class="form-control" id="source" placeholder="Enter source"
-        name="flight_source" required>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-25">
-      <label for="destination">Destination</label>
-    </div>
-    <div class="col-75">
-      <input [(ngModel)]="destination" class="form-control" id="destination" placeholder="Enter destination"
-        name="flight_destination" required>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-25">
-      <label for="Date">Date</label>
-    </div>
-    <div class="col-75">
-      <input type="date" [(ngModel)]="flightdate" class="form-control" id="Date" placeholder="select date" name="date"
-        required>
-    </div>
-  </div>
-</div>
-<button class="" (click)="submit(source,destination,flightdate)">Show Flights</button><br />
-
 <div class="container">
-  <div class="panel">
-    <div class="panel-heading text-center"><strong>{{ title }}</strong></div>
-    <div class="panel-body">
-      <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Flight No.</th>
-              <th>Source</th>
-              <th>Destination</th>
-              <th>Arrival Time</th>
-              <th>Departure Time</th>
-              <th>Duration</th>
-              <th>Flight Date</th>
-              <th></th>
-            </tr>
-          </thead>
 
-          <tbody>
-            <tr *ngFor="let f of flights">
-              <td>{{f.flightNumber}}</td>
-              <td>{{f.source}}</td>
-              <td>{{f.destination}}</td>
-              <td>{{f.arrivalTime}}</td>
-              <td>{{f.departureTime}}</td>
-              <td>{{f.duration}}</td>
-              <td>{{f.flightdate}}</td>
-              <td><button>Book</button></td>
-            </tr>
-          </tbody>
-        </table>
+  <section>
+    <div class="row m-auto p-4">
+      <div class="col">
+        <label for="source" class="label">Source</label>
+        <input type="text" [(ngModel)]="source" class="form-control" id="source" placeholder="Enter source"
+          name="flight_source" required>
+      </div>
+      <div class="col">
+        <label for="destination" class="label">Destination</label>
+        <input [(ngModel)]="destination" class="form-control" id="destination" placeholder="Enter destination"
+          name="flight_destination" required>
+      </div>
+      <div class="col">
+        <label for="Date" class="label">Date</label>
+        <input type="date" [(ngModel)]="flightdate" class="form-control" id="Date" placeholder="select date" name="date"
+          required>
       </div>
     </div>
-  </div>
+    <button type="button" class="btn btn-dark btnStyle" (click)="submit(source,destination,flightdate)">Show
+      Flights</button>
+  </section>
+
+  <section>
+    <div class="panel">
+      <div class="panel-heading panelHeadStyle"><strong>{{ title }}</strong></div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered text-center">
+            <thead class="thead-dark ">
+              <tr>
+                <th>Flight No.</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Arrival Time</th>
+                <th>Departure Time</th>
+                <th>Duration</th>
+                <th>Flight Date</th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let f of flights">
+                <td>{{f.flightNumber}}</td>
+                <td>{{f.source}}</td>
+                <td>{{f.destination}}</td>
+                <td>{{f.arrivalTime}}</td>
+                <td>{{f.departureTime}}</td>
+                <td>{{f.duration}}</td>
+                <td>{{f.flightdate}}</td>
+                <td><button>Book</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

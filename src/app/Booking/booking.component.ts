@@ -33,12 +33,13 @@ import { Router } from '@angular/router';
     }
   }
       store(){
-      let url=''
+      let url='http:localhost:8084/book/flight/passenger'
       console.log(this.passengers)
-      this.r.navigate(['confirm-page']);
       this.pr.sendToServer(url,this.passengers).subscribe(data=>{
-      
+        
       });
+      this.r.navigate(['confirm-page']);
+
           }
       
 }

@@ -35,7 +35,9 @@ export class UserLoginComponent implements OnInit {
         this.router.navigate(['./']);
       }
       else{
+        localStorage.removeItem('userDetails');
         this.router.navigate(['./user_login']);
+
       }
     });
   }

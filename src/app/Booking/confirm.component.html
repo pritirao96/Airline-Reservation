@@ -1,30 +1,33 @@
-
-<div class="panel"> 
-    <div class="panel-heading">{{ title }}</div>
-       <div class="panel-body">
-           <div class="container">
-                <h2>Confirm Details</h2>
-               <table class="table table-dark">
-                   <thead >
-                       <tr>
-                           <th>Bus ID</th>
-                           <th>Date Of Booking</th>
-                           <th>Gender</th>
-                           <th>Mobile</th>
-                           <th>Email</th>
-                       </tr>
-                   </thead>
-                   <tbody>
-                       <tr *ngFor='let u of users'>
-                           <td>{{u.fullname}}</td>
-                           <td>{{u.dateOfBirth}}</td>
-                           <td>{{u.gender}}</td>
-                           <td>{{u.mobile}}</td>
-                           <td>{{u.email}}</td>
-                           <td>{{u.Address}}</td>
-                       </tr>
-                   </tbody>
-                </table>
-           </div>
-       </div>
-   </div>
+<div class="panel">
+  <div class="panel-heading">{{ title }}</div>
+  <div class="panel-body">
+    <div class="container">
+      <h2>Confirm Details</h2>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>No.of Seats</th>
+            <th>Email</th>
+            <th>Bus Name</th>
+            <th>Date of Booking</th>
+            <th>Time</th>
+            <th>Fare</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let u of confirm'>
+            <td>{{u.noOfSeats}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.busName}}</td>
+            <td>{{u.dateOfBooking}}</td>
+            <td>{{u.busTime}}</td>
+            <td>{{u.Tfare}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary btn-block" (click)="display()">Passenger Details</button><br>
+      <router-outlet></router-outlet>
+      <button type="button" class="btn btn- primary btn-block" (click)="proceed()">Proceed to Pay</button>
+    </div>
+  </div>
+</div>

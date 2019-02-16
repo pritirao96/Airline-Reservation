@@ -1,5 +1,6 @@
 <div class="container py-5">
 
+  <button [routerLink]="['/']">Logout</button>
   <div class="panel">
     <div class="panel-heading">{{ title }}</div>
     <div class="panel-body">
@@ -70,44 +71,44 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="FlightNo">Flight No</label>
-          <input [(ngModel)]="flights.flightNumber" class="form-control" id="FlightNo" placeholder="Enter first name"
+          <input [(ngModel)]="flight.flightNumber" class="form-control" id="FlightNo" placeholder="Enter Flight No."
             name="flight_no" required>
         </div>
         <div class="form-group">
           <label for="Source">Source</label>
-          <input [(ngModel)]="flights.source" class="form-control" id="Source" placeholder="Enter last name"
+          <input [(ngModel)]="flight.source" class="form-control" id="Source" placeholder="Enter source"
             name="source" required>
         </div>
         <div class="form-group">
           <label for="flight_dest">Destination</label>
-          <input [(ngModel)]="flights.destination" class="form-control" id="flight_dest" aria-describedby="emailHelp"
-            placeholder="Enter email" name="destination" required>
+          <input [(ngModel)]="flight.destination" class="form-control" id="flight_dest" 
+            placeholder="Enter destination" name="destination" required>
         </div>
         <div class="form-group">
           <label for="arrival_time">Arrival Time</label>
-          <input type="time" [(ngModel)]="flights.arrivalTime" class="form-control" id="arrival_time" placeholder="Password"
+          <input type="time" [(ngModel)]="flight.arrivalTime" class="form-control" id="arrival_time" placeholder="Arrival time"
             name="arrival_time" required>
         </div>
         <div class="form-group">
           <label for="departure_time">Departure Time</label>
-          <input type="time" [(ngModel)]="flights.departureTime" class="form-control" id="departure_time" placeholder="Password"
+          <input type="time" [(ngModel)]="flight.departureTime" class="form-control" id="departure_time" placeholder="Departure time"
             name="departure_time" required>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="duration">Duration</label>
-          <input type="time" [(ngModel)]="flights.duration" class="form-control" id="duration" placeholder="Password"
+          <input type="time" [(ngModel)]="flight.duration" class="form-control" id="duration" placeholder="Duration"
             name="duration" required>
         </div>
         <div class="form-group">
           <label for="duration">Flight Date</label>
-          <input type="date" [(ngModel)]="flights.flightdate" class="form-control" id="duration" placeholder="Password"
+          <input type="date" [(ngModel)]="flight.flightdate" class="form-control" id="duration" placeholder="Select Date"
             name="duration" required>
         </div>
         <div class="form-group">
           <label for="Price">Price</label>
-          <input [(ngModel)]="flights.pricePerSeat" class="form-control" id="Price" placeholder="Password" name="duration" required>
+          <input [(ngModel)]="flight.pricePerSeat" class="form-control" id="Price" placeholder="Enter Price" name="duration" required>
         </div>
       </div>
     </div>

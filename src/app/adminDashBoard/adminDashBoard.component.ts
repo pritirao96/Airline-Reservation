@@ -11,6 +11,8 @@ import { FlightPrice } from '../flightprice';
 export class AdminDashBoardComponent implements OnInit {
 
   flights: Flight[];
+  flight: Flight = new Flight();
+
   constructor(private as: AdminDashBoardService) { }
 
   ngOnInit() {
@@ -22,17 +24,20 @@ export class AdminDashBoardComponent implements OnInit {
   }
 
   add(pform){
+    console.log(this.flight);
     let url="http://localhost:8084/addFlight"
-    this.as.sendtoServer(url,this.flights).subscribe(data=>{
+    this.as.sendtoServer(url,this.flight).subscribe(data=>{
       console.log(data);
     })
   }
 
   delete(flight_id){
     let url="http://localhost:8084/flight/"+flight_id;
-    this.as.sendtoServer(url,this.flights).subscribe(data=>{
+    this.as.sendtoServer(url,this.flight).subscribe(data=>{
       alert("hi");
       console.log(data);
     })
   }
+
+  
 }

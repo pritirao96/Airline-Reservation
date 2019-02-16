@@ -23,7 +23,7 @@ export class AdminLoginComponent implements OnInit {
   }
 
   login() {
-   
+    window.localStorage.setItem('adminDetails',JSON.stringify({token: this.admins , name:'adminDetails'}))
     this.rs.retriveFromServer(this.admins).subscribe(data => {
       console.log(data);
       this.response = data.toString();
@@ -33,6 +33,7 @@ export class AdminLoginComponent implements OnInit {
         this.router.navigate(['./admin_dashBoard']);
       }
       else{
+        localStorage.removeItem('userDetails');
         this.router.navigate(['./admin_login']);
       }
     });
