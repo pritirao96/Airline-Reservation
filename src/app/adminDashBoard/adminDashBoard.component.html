@@ -27,91 +27,86 @@
 
           </tbody>
         </table>
-        <!-- <button (click)="submit(source, destination)">Show Flights</button> -->
       </div>
     </div>
   </div>
 
-  <button type="button" class="btn btn-primary">Add</button>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete-modal">Delete</button>
-
-  <!-- Delete Modal Start -->
-  <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteModal">Flight Delete</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="flight_id" class="col-form-label">Flight ID:</label>
-              <input [(ngModel)]="flights.flightNumber" class="form-control" id="flight_id" name="flightNo">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" (click)="delete(flight_id)">Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Delete Modal Start -->
+  <!-- <button type="button" class="btn btn-dark">Add</button> -->
 
   <!-- Add Flight Form Start -->
 
-  <form #pform="ngForm" ngNativeValidate (ngSubmit)="add(pform)">
+  <form #pform="ngForm" ngNativeValidate [formGroup]="addFlightForm" (ngSubmit)="add(pform)">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label for="FlightNo">Flight No</label>
-          <input [(ngModel)]="flight.flightNumber" class="form-control" id="FlightNo" placeholder="Enter Flight No."
-            name="flight_no" required>
+          <label for="flightNo">Flight No</label>
+          <input [(ngModel)]="flight.flightNumber" class="form-control" id="flightNo" placeholder="Enter Flight No."
+            name="flight_no" formControlName="flightNo"
+            [ngClass]="{'is-invalid': addFlightForm.get('flightNo').touched && addFlightForm.get('flightNo').invalid}">
+          <div class="invalid-feedback">
+            <div>Flight Number is required</div>
+          </div>
         </div>
         <div class="form-group">
-          <label for="Source">Source</label>
-          <input [(ngModel)]="flight.source" class="form-control" id="Source" placeholder="Enter source"
-            name="source" required>
+          <label for="source">Source</label>
+          <input [(ngModel)]="flight.source" pattern="[A-Za-z]*" class="form-control" id="source"
+            placeholder="Enter source" name="source" formControlName="source"
+            [ngClass]="{'is-invalid': addFlightForm.get('source').touched && addFlightForm.get('source').invalid}">
+          <div class="invalid-feedback">
+            <div>Please enter the source</div>
+          </div>
         </div>
         <div class="form-group">
-          <label for="flight_dest">Destination</label>
-          <input [(ngModel)]="flight.destination" class="form-control" id="flight_dest" 
-            placeholder="Enter destination" name="destination" required>
+          <label for="destination">Destination</label>
+          <input [(ngModel)]="flight.destination" pattern="[A-Za-z]*" class="form-control" id="destination"
+            placeholder="Enter destination" name="destination" formControlName="destination"
+            [ngClass]="{'is-invalid': addFlightForm.get('destination').touched && addFlightForm.get('destination').invalid}">
+          <div class="invalid-feedback">
+            <div>Please enter the destination</div>
+          </div>
         </div>
         <div class="form-group">
-          <label for="arrival_time">Arrival Time</label>
-          <input type="time" [(ngModel)]="flight.arrivalTime" class="form-control" id="arrival_time" placeholder="Arrival time"
-            name="arrival_time" required>
+          <label for="arrTime">Arrival Time</label>
+          <input type="time" [(ngModel)]="flight.arrivalTime" class="form-control" id="arrTime"
+            placeholder="Arrival time" name="arrival_time" formControlName="arrTime"
+            [ngClass]="{'is-invalid': addFlightForm.get('arrTime').touched && addFlightForm.get('arrTime').invalid}">
+          <div class="invalid-feedback">
+            <div>Please enter the Arrival Time</div>
+          </div>
         </div>
         <div class="form-group">
-          <label for="departure_time">Departure Time</label>
-          <input type="time" [(ngModel)]="flight.departureTime" class="form-control" id="departure_time" placeholder="Departure time"
-            name="departure_time" required>
+          <label for="deparTime">Departure Time</label>
+          <input type="time" [(ngModel)]="flight.departureTime" class="form-control" id="deparTime"
+            placeholder="Departure time" name="departure_time" formControlName="deparTime"
+            [ngClass]="{'is-invalid': addFlightForm.get('deparTime').touched && addFlightForm.get('deparTime').invalid}">
+          <div class="invalid-feedback">
+            <div>Please enter the Departure Time</div>
+          </div>
         </div>
       </div>
       <div class="col-md-6">
-        <!-- <div class="form-group">
-          <label for="duration">Duration</label>
-          <input type="time" [(ngModel)]="flight.duration" class="form-control" id="duration" placeholder="Duration"
-            name="duration" required>
-        </div> -->
         <div class="form-group">
-          <label for="duration">Flight Date</label>
-          <input type="date" [(ngModel)]="flight.flightdate" class="form-control" id="duration" placeholder="Select Date"
-            name="duration" required>
+          <label for="date">Flight Date</label>
+          <input type="date" [(ngModel)]="flight.flightdate" class="form-control" id="date" placeholder="Select Date"
+            name="date" formControlName="date"
+            [ngClass]="{'is-invalid': addFlightForm.get('date').touched && addFlightForm.get('date').invalid}">
+          <div class="invalid-feedback">
+            <div>Please enter the Date</div>
+          </div>
         </div>
         <div class="form-group">
-          <label for="Price">Price</label>
-          <input [(ngModel)]="flight.pricePerSeat" class="form-control" id="Price" placeholder="Enter Price" name="duration" required>
+          <label for="price">Price</label>
+          <input type="number" [(ngModel)]="flight.pricePerSeat" class="form-control" id="price"
+            placeholder="Enter Price" name="price" formControlName="price"
+            [ngClass]="{'is-invalid': addFlightForm.get('price').touched && addFlightForm.get('price').invalid}">
+          <div class="invalid-feedback">
+            <div>Please enter the rate</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <button class="btn btn-primary">Add</button>
+    <button class="btn btn-dark" [disabled]="!addFlightForm.valid">Add</button>
   </form>
 
   <!-- Add Flight Form End -->

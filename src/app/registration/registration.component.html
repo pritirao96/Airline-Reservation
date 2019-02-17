@@ -50,7 +50,7 @@
           <div class="form-group">
             <label for="conf-pswd">Confirm Password</label>
             <input type="password" class="form-control" formControlName="confirm_password" id="conf-pswd"
-              placeholder="Re-enter Password" name="conf_pass" 
+              placeholder="Re-enter Password" name="conf_pass"
               [ngClass]="{'is-invalid': regForm.get('confirm_password').touched && regForm.get('confirm_password').invalid}">
             <div *ngIf="regForm.get('confirm_password').touched && regForm.get('confirm_password').invalid"
               class="invalid-feedback">
@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <button class="btn btn-primary" [disabled]="!regForm.valid">Submit</button>
+      <button class="btn btn-dark" [disabled]="!regForm.valid">Submit</button>
     </form>
   </div>
 </section>

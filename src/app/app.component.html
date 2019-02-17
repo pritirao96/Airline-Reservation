@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <!-- <a class="navbar-brand text-white">BREEZE</a> -->
   <a class="navbar-brand" [routerLink]="['/searchFlight']">
-    <img src="/assets/img/logo.png" width="30" height="30" alt="Breeze">
+    <img src="/assets/img/logo.jpg" width="30" height="30" alt="Breeze">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
@@ -9,21 +8,8 @@
   </button>
   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
-      <!-- <li class="nav-item active">
-        <a class="nav-link" data-toggle="modal" data-target="#LoginModal">Login <span
-            class="sr-only">(current)</span></a>
-      </li> -->
       <li class="nav-item active text-white">
-       Hi {{users.email}}
-      </li>
-      <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/seats-user']">Seat <span class="sr-only">(current)</span></a>
-        </li>
-      <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/payment']">Payment <span class="sr-only">(current)</span></a>
-        </li>
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/registration']">Registration <span class="sr-only">(current)</span></a>
+        Hi {{users.email}}
       </li>
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/user_login']">User Login <span class="sr-only">(current)</span></a>
@@ -36,8 +22,3 @@
 </nav>
 
 <router-outlet></router-outlet>
-<!-- <searchFlight></searchFlight> -->
-<!-- <app-adminDashBoard></app-adminDashBoard> -->
-
-
-<!-- <seats-user></seats-user> -->

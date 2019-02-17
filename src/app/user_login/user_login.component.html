@@ -1,10 +1,11 @@
 <div class="container py-5">
 
   <h3>User Login Form</h3>
+  <br>
   <form name="userForm" [formGroup]="userForm">
     <div class="form-group">
       <label for="password">Email address</label>
-      <input [(ngModel)]="users.email" class="form-control" formControlName="email" id="password"
+      <input [(ngModel)]="users.email" class="form-control w-50" formControlName="email" id="password"
         aria-describedby="emailHelp" placeholder="Enter email" name="email_add"
         [ngClass]="{'is-invalid': userForm.get('email').touched && userForm.get('email').invalid}">
       <div *ngIf="userForm.get('email').touched && userForm.get('email').invalid" class="invalid-feedback">
@@ -14,7 +15,7 @@
     </div>
     <div class="form-group">
       <label for="ModalPassword">Password</label>
-      <input type="password" [(ngModel)]="users.password" class="form-control" formControlName="password"
+      <input type="password" [(ngModel)]="users.password" class="form-control w-50" formControlName="password"
         id="ModalPassword" placeholder="Password" name="password"
         [ngClass]="{'is-invalid': userForm.get('password').touched && userForm.get('password').invalid}">
       <div *ngIf="userForm.get('password').touched && userForm.get('password').invalid" class="invalid-feedback">
@@ -22,8 +23,8 @@
         <div *ngIf="userForm.get('password').errors.minlength">Password must be atleast 8 numeric values</div>
       </div>
     </div>
-    <button class="btn btn-primary" (click)="login()" [disabled]="!userForm.valid">Submit</button>
-    <a href="javascript:void(0)" [routerLink]="['/registration']">Register</a>
+    <button class="btn btn-dark" (click)="login()" [disabled]="!userForm.valid">Submit</button> &nbsp;
+    <button class="btn btn-dark" [routerLink]="['/registration']">Register</button>
   </form>
 
 </div>

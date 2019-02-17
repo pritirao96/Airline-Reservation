@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'booking-user',
-  templateUrl: './booking.component.html'
+  templateUrl: './booking.component.html',
+  styleUrls: ['./booking.component.css']
 })
 
 export class UserBookingComponent implements OnInit {

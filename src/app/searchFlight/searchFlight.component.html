@@ -1,26 +1,38 @@
 <div class="container">
 
-  <section>
+  <form [formGroup]="searchFlightForm">
     <div class="row m-auto p-4">
       <div class="col">
         <label for="source" class="label">Source</label>
         <input type="text" [(ngModel)]="source" class="form-control" id="source" placeholder="Enter source"
-          name="flight_source" required>
+          name="flight_source" formControlName="source"
+          [ngClass]="{'is-invalid': searchFlightForm.get('source').touched && searchFlightForm.get('source').invalid}">
+        <div class="invalid-feedback">
+          <div>Enter Source</div>
+        </div>
       </div>
       <div class="col">
         <label for="destination" class="label">Destination</label>
         <input [(ngModel)]="destination" class="form-control" id="destination" placeholder="Enter destination"
-          name="flight_destination" required>
+          name="flight_destination" formControlName="destination"
+          [ngClass]="{'is-invalid': searchFlightForm.get('destination').touched && searchFlightForm.get('destination').invalid}">
+        <div class="invalid-feedback">
+          <div>Enter Destination</div>
+        </div>
       </div>
       <div class="col">
         <label for="Date" class="label">Date</label>
-        <input type="date" [(ngModel)]="flightdate" class="form-control" id="Date" placeholder="select date" name="date"
-          required>
+        <input type="date" [(ngModel)]="flightdate" class="form-control" id="Date" placeholder="Select date" name="date"
+        formControlName="date"
+        [ngClass]="{'is-invalid': searchFlightForm.get('date').touched && searchFlightForm.get('date').invalid}">
+      <div class="invalid-feedback">
+        <div>Select Date</div>
+      </div>
       </div>
     </div>
-    <button type="button" class="btn btn-dark btnStyle" (click)="submit(source,destination,flightdate)">Show
+    <button type="button" class="btn btn-dark btnStyle" (click)="submit(source,destination,flightdate)" [disabled]="!searchFlightForm.valid">Show
       Flights</button>
-  </section>
+    </form>
 
   <section>
     <div class="panel">
@@ -36,8 +48,6 @@
                 <th>Arrival Time</th>
                 <th>Departure Time</th>
                 <th>Fare</th>
-
-                <!-- <th>Flight Date</th> -->
                 <th></th>
               </tr>
             </thead>
@@ -50,7 +60,7 @@
                 <td>{{f.arrivalTime}}</td>
                 <td>{{f.departureTime}}</td>
                 <td>{{f.pricePerSeat}}</td>
-                <td><button (click)="divert(f.flightNumber,f.pricePerSeat)">Book</button></td>
+                <td><button class="btn btn-dark" (click)="divert(f.flightNumber,f.pricePerSeat)">Book</button></td>
               </tr>
             </tbody>
           </table>

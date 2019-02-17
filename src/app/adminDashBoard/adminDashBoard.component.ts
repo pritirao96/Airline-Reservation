@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Flight } from '../flight';
 import { AdminDashBoardService } from './adminDashBoard.service';
-import { FlightPrice } from '../flightprice';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-adminDashBoard',
@@ -14,6 +14,17 @@ export class AdminDashBoardComponent implements OnInit {
   flight: Flight = new Flight();
 
   constructor(private as: AdminDashBoardService) { }
+
+  addFlightForm = new FormGroup({
+    flightNo: new FormControl('', Validators.required),
+    source: new FormControl('', Validators.required),
+    destination: new FormControl('', Validators.required),
+    arrTime: new FormControl('', Validators.required),
+    deparTime: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required),
+    price: new FormControl('', Validators.required)
+
+  })
 
   ngOnInit() {
     let url="http://localhost:8084/flight"

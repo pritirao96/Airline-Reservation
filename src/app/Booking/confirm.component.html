@@ -23,9 +23,10 @@
           </tr>
         </tbody>
       </table>
-      <button type="button" class="btn btn-primary btn-block" (click)="display()">Passenger Details</button><br>
+      <button type="button" class="btn btn-dark btn-block" (click)="display()">Passenger Details</button><br>
       <router-outlet></router-outlet>
-      <button type="button" class="btn btn- primary btn-block" (click)="proceed()">Proceed to Pay</button>
+      <button type="button" class="btn btn-dark btn-block" [routerLink]="['/payment']" (click)="proceed()">Proceed to
+        Pay</button>
     </div>
   </div>
 </div>

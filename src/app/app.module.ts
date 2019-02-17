@@ -21,11 +21,12 @@ import { UserBookingComponent } from './Booking/booking.component';
 import { PassengerService } from './Booking/booking-service';
 import { PaymentComponent } from './payment/payment.component';
 import { ConfirmService } from './Booking/confirm-service';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 @NgModule({
   declarations: [
     AppComponent, SearchFlightComponent, AdminDashBoardComponent, RegistrationComponent, UserLoginComponent, AdminLoginComponent, HeaderComponent,UserBookingComponent,
-    SeatBookingComponent, ConfirmBookingComponent, PaymentComponent
+    SeatBookingComponent, ConfirmBookingComponent, PaymentComponent, ThankyouComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,8 @@ import { ConfirmService } from './Booking/confirm-service';
       { path: 'booking', component: UserBookingComponent},
       { path: 'payment', component: PaymentComponent},
       { path: 'seats-user', component: SeatBookingComponent},
-      { path: 'searchFlight', component: SearchFlightComponent}
+      { path: 'searchFlight', component: SearchFlightComponent},
+      { path: 'thankyou', component: ThankyouComponent}
       
     ])
   ],

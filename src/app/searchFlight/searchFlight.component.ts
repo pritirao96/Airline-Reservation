@@ -4,6 +4,7 @@ import { Flight } from '../flight';
 import { formatDate } from '@angular/common';
 import { User } from '../user';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'searchFlight',
@@ -21,6 +22,12 @@ export class SearchFlightComponent implements OnInit {
   users: User = new User();
 
   constructor(public fs: SearchFlightService, private router: Router) { }
+
+  searchFlightForm = new FormGroup({
+    source: new FormControl('', Validators.required),
+    destination: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required)
+  })
 
   ngOnInit() {
   }

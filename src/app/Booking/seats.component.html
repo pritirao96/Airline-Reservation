@@ -1,9 +1,15 @@
-<div class="container">
-    <h2>Enter Booking Details</h2>
+<div class="container py-5">
+  <h3>Enter Booking Details</h3>
 
-    <label for="noOfSeats"><b>Enter Number of Seats</b></label>
-    <input type="text" placeholder="Enter Number of seats" name="noOfSeats" [(ngModel)]="seats" required>
+  <div class="form-group">
+    <label for="noOfSeats">Enter Number of Seats</label>
+    <input type="text" class="form-control w-50" placeholder="Enter Number of seats" name="noOfSeats" [(ngModel)]="seats"
+      required>
+  </div>
+  <br>
+  <!-- <label for="noOfSeats"><b>Enter Number of Seats</b></label>
+  <input type="text" placeholder="Enter Number of seats" name="noOfSeats" [(ngModel)]="seats" required> -->
 
-    <button type="submit" class="registerbtn" (click)="addPassengers(seats)">Add Passengers</button>
+  <button type="submit" class="btn btn-dark" (click)="addPassengers(seats)">Add Passengers</button>
 </div>
 <router-outlet></router-outlet>

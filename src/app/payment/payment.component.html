@@ -1,21 +1,31 @@
-<div class="container">
-  <form ngNativeValidate #amtForm="ngForm">
+<div class="container py-5">
+  <form #amtForm="ngForm" ngNativeValidate [formGroup]="paymentForm">
     <h3>Payment Form</h3>
     <br>
     <br>
     <div class="form-group">
       <label for="cardNo">Card Number</label>
-      <input type="number" class="form-control" id="cardNo" (keypress)="keyPress($event)" placeholder="Enter card number">
+      <input type="number" class="form-control w-50" id="cardNo" (keypress)="keyPress($event)"
+        placeholder="Enter card number" formControlName="cardNo"
+        [ngClass]="{'is-invalid': paymentForm.get('cardNo').touched && paymentForm.get('cardNo').invalid}">
+      <div class="invalid-feedback">
+        <div>Please enter Card number</div>
+      </div>
     </div>
     <div class="form-group">
-      <label for="nameOnCard">Name on Card</label>
-      <input type="text" class="form-control" id="nameOnCard" pattern="[A-Za-z]*" placeholder="Enter Name On the Card">
+      <label for="cName">Name on Card</label>
+      <input type="text" class="form-control w-50" id="cName" pattern="[A-Za-z]*" placeholder="Enter Name On the Card"
+        formControlName="cName"
+        [ngClass]="{'is-invalid': paymentForm.get('cName').touched && paymentForm.get('cName').invalid}">
+      <div class="invalid-feedback">
+        <div>Please enter the name mentioned in card</div>
+      </div>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="amount">Amount to be paid</label>
-      <!-- <p>{{}}</p> -->
-    </div>
-    <button type="submit" class="btn btn-primary">Confirm</button>
-    <button type="submit" class="btn btn-primary" [routerLink]="['/searchFlight']">Cancel</button>
+       <p>{{}}</p> 
+     </div> -->
+    <button type="submit" class="btn btn-dark" [disabled]="!paymentForm.valid" [routerLink]="['/thankyou']">Confirm</button> &nbsp;
+    <button type="submit" class="btn btn-dark" [routerLink]="['/searchFlight']">Cancel</button>
   </form>
 </div>

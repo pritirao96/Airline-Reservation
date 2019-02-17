@@ -37,6 +37,5 @@ export class AdminLoginComponent implements OnInit {
         this.router.navigate(['./admin_login']);
       }
     });
-    //console.log("verified");
   }
 }
