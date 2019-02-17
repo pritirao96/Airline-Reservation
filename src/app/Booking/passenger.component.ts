@@ -13,7 +13,7 @@ import { PassengerDisplayService } from './passenger-service';
  export class PassengerDetailsComponent{
 
     passenger: Passenger[];
-    url11 = "http://localhost:8084/show/passengers/";
+    url11 = "http://localhost:8084/show/passengers";
 
     constructor(private ps: PassengerDisplayService, private router: Router) {
 

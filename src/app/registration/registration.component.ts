@@ -13,6 +13,9 @@ import { Router } from '@angular/router';
 export class RegistrationComponent implements OnInit {
   users: User = new User();
   response: string;
+  array = { password: "", msg: "" };
+  confirmPassword: string;
+
 
   keyPress(event: any) {
     const pattern = /[0-9\+\-\ ]/;
@@ -38,20 +41,31 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
-  register(pform) {
-   
-    console.log(this.users);
-    this.rs.retriveFromServer(this.users).subscribe(data => {
-      console.log(data);
-      this.response = data.toString();
-      var check=this.response;
-
-      if(check == "true") {
-        this.router.navigate(['./user_login']);
-      }
-      else{
-        this.router.navigate(['./registration']);
-      }
-    });
+  
+    pswdCheck(){
+    let confirm = true;
+    if (this.confirmPassword != this.users.password) {
+      confirm = false;
+      this.array['password'] = "Password does not match";
+    }
   }
-}
+    register(pform) {
+    // console.log(this.users);
+      this.rs.retriveFromServer(this.users).subscribe(data => {
+        console.log(data);
+        this.response = data.toString();
+        var check = this.response;
+
+        if (check == "true") {
+          this.router.navigate(['./user_login']);
+        }
+        else {
+          this.router.navigate(['./registration']);
+        }
+      });
+    }
+
+  }
+
+
+

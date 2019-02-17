@@ -16,12 +16,8 @@ export class SeatBookingComponent {
 
    }
 
-   addPassengers() {
-      let url = "http://localhost:8084/";
-      this.passengerService.sendToServer(url, this.seats).subscribe(
-         data => {
-
-         });
+   addPassengers(seats: number) {
+      sessionStorage.setItem('seats', "" + seats);
       this.passengerService.seats = this.seats;
       this.router.navigate(['/booking']);
    }

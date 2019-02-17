@@ -10,7 +10,6 @@
             <th>Email</th>
             <th>Flight Number</th>
             <th>Date of Booking</th>
-            <!-- <th>Time</th> -->
             <th>Fare</th>
           </tr>
         </thead>
@@ -20,8 +19,7 @@
             <td>{{u.email}}</td>
             <td>{{u.flightNumber}}</td>
             <td>{{u.dateOfBooking}}</td>
-            <!-- <td>{{u.busTime}}</td> -->
-            <td>{{u.Tfare}}</td>
+            <td>{{u.Tfare*seats}}</td>
           </tr>
         </tbody>
       </table>

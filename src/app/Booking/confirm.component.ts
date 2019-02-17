@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ConfirmBookingComponent implements OnInit {
   confirm: ConfirmBooking[];
-  url11 = "http://localhost:8084/show/book/flight";
+  url11 = "http://localhost:8084/show/flight";
   response: string;
   flightNumber: string;
   email: string;
