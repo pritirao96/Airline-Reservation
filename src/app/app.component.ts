@@ -16,5 +16,8 @@ export class AppComponent implements OnInit{
     if(localStorage.getItem('userDetails')!=null){
      this.users = (JSON.parse(localStorage.getItem('userDetails'))['token']);
     }
+    else{
+      
+    }
   }
 }

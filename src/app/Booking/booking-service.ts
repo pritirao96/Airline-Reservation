@@ -12,9 +12,9 @@ export class PassengerService {
 constructor(private http:HttpClient){
 
 }
-    sendToServer(url,user){
+    sendToServer(url,passenger){
         //our code to be communicated with the server will be here
-     return this.http.post(url,user) 
+     return this.http.post(url,passenger);
      
       }
     

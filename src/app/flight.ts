@@ -9,6 +9,7 @@ export class Flight {
     private flightdate?:String,
     private duration?: String,
     private pricePerSeat?: number
+    
     ) {
 
   }

@@ -8,19 +8,19 @@
           <tr>
             <th>No.of Seats</th>
             <th>Email</th>
-            <th>Bus Name</th>
+            <th>Flight Number</th>
             <th>Date of Booking</th>
-            <th>Time</th>
+            <!-- <th>Time</th> -->
             <th>Fare</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor='let u of confirm'>
-            <td>{{u.noOfSeats}}</td>
+            <td>{{u.seats}}</td>
             <td>{{u.email}}</td>
-            <td>{{u.busName}}</td>
+            <td>{{u.flightNumber}}</td>
             <td>{{u.dateOfBooking}}</td>
-            <td>{{u.busTime}}</td>
+            <!-- <td>{{u.busTime}}</td> -->
             <td>{{u.Tfare}}</td>
           </tr>
         </tbody>

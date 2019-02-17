@@ -7,13 +7,13 @@ import { PassengerDisplayService } from './passenger-service';
 
 
  @Component({
-    selector : 'confirm',
+    selector : 'confirm-passenger',
     templateUrl : './confirm.component.html',
  })
  export class PassengerDetailsComponent{
 
     passenger: Passenger[];
-    url11 = "http://localhost:8181/";
+    url11 = "http://localhost:8084/show/passengers/";
 
     constructor(private ps: PassengerDisplayService, private router: Router) {
 

@@ -24,21 +24,33 @@ export class UserLoginComponent implements OnInit {
   }
 
   login() {
-    window.localStorage.setItem('userDetails',JSON.stringify({token: this.users , name:'userDetails'}))
+    //window.localStorage.setItem('userDetails',JSON.stringify({token: this.users , name:'userDetails'}))
     console.log(this.users);
     this.rs.retriveFromServer(this.users).subscribe(data => {
       console.log(data);
       this.response = data.toString();
-      var check=this.response;
+      //var check=this.response;
 
-      if(check == "true") {
-        this.router.navigate(['./']);
+      
+      if(this.response == "true"){
+        sessionStorage.setItem('email', this.users.email);
+        sessionStorage.setItem('password', this.users.password);
+        sessionStorage.setItem('name',this.users.fName);
+        
+        this.router.navigate(["/seats-page"]);
       }
       else{
-        localStorage.removeItem('userDetails');
-        this.router.navigate(['./user_login']);
-
+         this.router.navigate(["/user_login"]);
       }
+
+      // if(check == "true") {
+      //   this.router.navigate(['./']);
+      // }
+      // else{
+      //   localStorage.removeItem('userDetails');
+      //   this.router.navigate(['./user_login']);
+
+      // }
     });
   }
 }

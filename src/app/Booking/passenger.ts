@@ -1,8 +1,11 @@
+import { User } from '../user';
+
 export class Passenger{
-    constructor(public seatNo?: number,
-        public fullName?: string,
+    constructor(public seatno?: number,
+        public name?: string,
         public age?: number,
-        public gender?: string
+        public gender?: string,
+        public id?:User
         ) { }
 
 }

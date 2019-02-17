@@ -1,9 +1,9 @@
-export class Booking{
+export class Booking {
     constructor(public NumberOfSeats?: number,
-        public userId?: number,
+        public email?: string,
         public flightid?: number,
         public dateOfBooking?: string,
         public TotalPrice?: number
-        ) { }
+    ) { }
 
 }

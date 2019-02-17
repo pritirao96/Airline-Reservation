@@ -18,7 +18,7 @@ export class SearchFlightComponent implements OnInit {
 
   source: String;
   destination: String;
-  users: User= new User();
+  users: User = new User();
 
   constructor(public fs: SearchFlightService, private router: Router) { }
 
@@ -34,16 +34,20 @@ export class SearchFlightComponent implements OnInit {
       data => {
         this.flights = data;
         console.log(data);
-        
+
       });
   }
 
-  divert(){
-    if(localStorage.getItem('userDetails')!=null){
-      this.router.navigate(['./admin_dashBoard']);
+  divert(flightNumber: number, pricePerSeat: number) {
+    sessionStorage.setItem('flightNo', "" + flightNumber);
+    sessionStorage.setItem('flight-fare', "" + pricePerSeat);
+    if (sessionStorage != null) {
+      sessionStorage.getItem('email');
+      sessionStorage.getItem('password');
+      this.router.navigate(["/seats-page"]);
     }
-    else{
-      this.router.navigate(['./user_login']);
+    else {
+      this.router.navigate(['/login-page']);
     }
   }
 

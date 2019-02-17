@@ -4,42 +4,45 @@ import { PassengerService } from './booking-service';
 import { store } from '@angular/core/src/render3';
 import { Router } from '@angular/router';
 
- @Component({
-    selector : 'booking-user',
-    templateUrl : './booking.component.html'
- })
+@Component({
+  selector: 'booking-user',
+  templateUrl: './booking.component.html'
+})
 
- export class UserBookingComponent implements OnInit {
+export class UserBookingComponent implements OnInit {
 
-   passengers: Passenger[];
-   seats: number[];
+  passengers: Passenger[];
+  seats: number[];
+  //  response: string;
 
-     constructor( public pr:PassengerService, public r: Router){
+  constructor(public pr: PassengerService, public r: Router) {
 
-   }
-   
-   ngOnInit() {
-    this.seats = new Array(this.pr.seats);
-    this.passengers = new Array(this.pr.seats);
-    for(let i of this.seats)
-      this.passengers[i-1] = new Passenger();
   }
 
-   keyPress(event: any) {
+  ngOnInit() {
+    this.seats = new Array(this.pr.seats);
+    this.passengers = new Array(this.pr.seats);
+    let counter = 0;
+    for (let i = 0; i < this.pr.seats; i++)
+      this.passengers[counter++] = new Passenger();
+  }
+
+  keyPress(event: any) {
     const pattern = /[0-9\+\-\ ]/;
     let inputChar = String.fromCharCode(event.charCode);
     if (event.keyCode != 8 && !pattern.test(inputChar)) {
       event.preventDefault();
     }
   }
-      store(){
-      let url='http:localhost:8084/book/flight/passenger'
-      console.log(this.passengers)
-      this.pr.sendToServer(url,this.passengers).subscribe(data=>{
-        
-      });
-      this.r.navigate(['confirm-page']);
+  store() {
+    let url = 'http://localhost:8084/book/flight/passenger';
+    for(let p of this.passengers){
+      console.log(p);
+    }
 
-          }
-      
+    console.log("=========" + JSON.stringify(this.passengers));
+    this.r.navigate(['confirm-page']);
+    this.pr.sendToServer(url, this.passengers).subscribe(data => {
+    });
+  }
 }

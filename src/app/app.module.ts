@@ -20,6 +20,7 @@ import { SeatBookingComponent } from './Booking/seats.component';
 import { UserBookingComponent } from './Booking/booking.component';
 import { PassengerService } from './Booking/booking-service';
 import { PaymentComponent } from './payment/payment.component';
+import { ConfirmService } from './Booking/confirm-service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { PaymentComponent } from './payment/payment.component';
     ])
   ],
   providers: [HttpClient, SearchFlightService, RegistrationService, UserLoginService, PassengerService,  AdminLoginService,
-  AdminDashBoardService],
+  AdminDashBoardService,ConfirmService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

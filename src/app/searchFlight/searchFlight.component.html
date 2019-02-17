@@ -35,8 +35,9 @@
                 <th>Destination</th>
                 <th>Arrival Time</th>
                 <th>Departure Time</th>
-                <th>Duration</th>
-                <th>Flight Date</th>
+                <th>Fare</th>
+
+                <!-- <th>Flight Date</th> -->
                 <th></th>
               </tr>
             </thead>
@@ -48,9 +49,8 @@
                 <td>{{f.destination}}</td>
                 <td>{{f.arrivalTime}}</td>
                 <td>{{f.departureTime}}</td>
-                <td>{{f.duration}}</td>
-                <td>{{f.flightdate}}</td>
-                <td><button>Book</button></td>
+                <td>{{f.pricePerSeat}}</td>
+                <td><button (click)="divert(f.flightNumber,f.pricePerSeat)">Book</button></td>
               </tr>
             </tbody>
           </table>
