@@ -4,6 +4,7 @@ import { UserLoginService } from './user_login.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
+import { LoginStatus } from '../login-status';
 
 @Component({
   selector: 'userLogin',
@@ -13,6 +14,7 @@ import { ThrowStmt } from '@angular/compiler';
 export class UserLoginComponent implements OnInit {
   users: User = new User();
   response: string;
+  status: LoginStatus;
   constructor(private rs: UserLoginService, private router: Router) { }
 
   userForm = new FormGroup({
@@ -32,10 +34,10 @@ export class UserLoginComponent implements OnInit {
       //var check=this.response;
 
       
-      if(this.response == "true"){
+      if(this.response == "Verified"){
         sessionStorage.setItem('email', this.users.email);
         sessionStorage.setItem('password', this.users.password);
-        sessionStorage.setItem('name',this.users.fName);
+        sessionStorage.setItem('name',this.status.name);
         
         this.router.navigate(["/seats-page"]);
       }
