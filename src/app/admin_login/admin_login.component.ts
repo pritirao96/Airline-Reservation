@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminLoginService } from './admin_login.service';
-import { Admin } from '../admin';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginStatus } from '../login-status';
+import { Login } from '../login';
 
 @Component({
   selector: 'adminLogin',
@@ -10,8 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin_login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
-  admins: Admin = new Admin();
-  response: string;
+  admins: Login= new Login();
+  response: LoginStatus;
   constructor(private rs: AdminLoginService, private router: Router) { }
 
   adminForm = new FormGroup({
@@ -23,13 +24,14 @@ export class AdminLoginComponent implements OnInit {
   }
 
   login() {
-    window.localStorage.setItem('adminDetails',JSON.stringify({token: this.admins , name:'adminDetails'}))
+    console.log(this.admins)
+    //window.localStorage.setItem('adminDetails',JSON.stringify({token: this.admins , name:'adminDetails'}))
     this.rs.retriveFromServer(this.admins).subscribe(data => {
-      console.log(data);
-      this.response = data.toString();
-      var check=this.response;
-
-      if(check == "true") {
+      
+      this.response = data;
+      //var check=this.response;
+      console.log(this.response.status)
+      if(this.response.status == "Verified") {
         this.router.navigate(['./admin_dashBoard']);
       }
       else{

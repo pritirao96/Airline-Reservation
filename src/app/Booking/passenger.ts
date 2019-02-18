@@ -1,11 +1,11 @@
-import { User } from '../user';
+import { LoginStatus } from '../login-status';
 
 export class Passenger{
     constructor(public seatno?: number,
         public name?: string,
         public age?: number,
         public gender?: string,
-        public id?:User
+        public id?:LoginStatus
         ) { }
 
 }

@@ -3,7 +3,7 @@ import { User } from '../user';
 import { UserLoginService } from './user_login.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ThrowStmt } from '@angular/compiler';
+import { Login } from '../login';
 import { LoginStatus } from '../login-status';
 
 @Component({
@@ -12,9 +12,8 @@ import { LoginStatus } from '../login-status';
   styleUrls: ['./user_login.component.css']
 })
 export class UserLoginComponent implements OnInit {
-  users: User = new User();
-  response: string;
-  status: LoginStatus;
+  users: Login = new Login();
+  response: LoginStatus;
   constructor(private rs: UserLoginService, private router: Router) { }
 
   userForm = new FormGroup({
@@ -30,14 +29,14 @@ export class UserLoginComponent implements OnInit {
     console.log(this.users);
     this.rs.retriveFromServer(this.users).subscribe(data => {
       console.log(data);
-      this.response = data.toString();
+      this.response = data;
       //var check=this.response;
 
       
-      if(this.response == "Verified"){
+      if(this.response.status == "Verified"){
         sessionStorage.setItem('email', this.users.email);
         sessionStorage.setItem('password', this.users.password);
-        sessionStorage.setItem('name',this.status.name);
+        sessionStorage.setItem('name',this.response.name);
         
         this.router.navigate(["/seats-page"]);
       }

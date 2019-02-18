@@ -5,7 +5,7 @@
   <form name="adminForm" [formGroup]="adminForm">
     <div class="form-group">
       <label for="password">Email address</label>
-      <input [(ngModel)]="admins.emailId" class="form-control w-50" formControlName="email" id="password"
+      <input [(ngModel)]="admins.email" class="form-control w-50" formControlName="email" id="password"
         aria-describedby="emailHelp" placeholder="Enter email" name="email_add"
         [ngClass]="{'is-invalid': adminForm.get('email').touched && adminForm.get('email').invalid}">
       <div *ngIf="adminForm.get('email').touched && adminForm.get('email').invalid" class="invalid-feedback">

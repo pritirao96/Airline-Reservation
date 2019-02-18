@@ -48,13 +48,13 @@ export class SearchFlightComponent implements OnInit {
   divert(flightNumber: number, pricePerSeat: number) {
     sessionStorage.setItem('flightNo', "" + flightNumber);
     sessionStorage.setItem('flight-fare', "" + pricePerSeat);
-    if (sessionStorage != null) {
+    if (sessionStorage.getItem('email')!= null) {
       sessionStorage.getItem('email');
       sessionStorage.getItem('password');
       this.router.navigate(["/seats-page"]);
     }
     else {
-      this.router.navigate(['/login-page']);
+      this.router.navigate(['/user_login']);
     }
   }
 

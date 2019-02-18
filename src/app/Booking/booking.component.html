@@ -1,4 +1,4 @@
-<form ngNativeValidate #rform="ngForm" (ngSubmit)="store()">
+<form ngNativeValidate #pform="ngForm" (ngSubmit)="store()">
   <div class="container py-5">
     <h3>Enter Passenger Details</h3>
     <br>
@@ -7,8 +7,7 @@
 
       <div class="form-group">
         <label for="name">Passenger Name</label>
-        <input type="text" class="form-control w-50" placeholder="Enter Passenger Name" title="Only alphabets are allowed"
-          name="name" [(ngModel)]="passengers[i].name" pattern="[^0-9]*" required>
+        <input type="text" class="form-control w-50" placeholder="Enter Passenger Name" title="Only alphabets are allowed" name="firstName" [(ngModel)]="passengers[i].name" pattern="[^0-9]*" required>
       </div>
       <!-- <label for="name"><b>Passenger Name</b></label>
       <input type="text" placeholder="Enter Passenger Name" title="Only alphabets are allowed" name="name"
@@ -16,7 +15,7 @@
 
       <div class="form-group">
         <label for="seatNumber">Enter Seat Number</label>
-        <input type="number" class="form-control w-50" placeholder="Enter Seat Number" name="seatNumber"
+        <input type="number" class="form-control w-50" placeholder="Enter Seat Number" name="seatno"
           [(ngModel)]="passengers[i].seatno" pattern="[0-9]*" required>
       </div>
 
@@ -60,7 +59,7 @@
 
       <div class="form-group">
         <label for="age">Age</label>
-        <input type="number" class="form-control w-50" placeholder="Enter Age" name="mobile" [(ngModel)]="passengers[i].age"
+        <input type="number" class="form-control w-50" placeholder="Enter Age" name="age" [(ngModel)]="passengers[i].age"
           minlength="1" maxlength="2" required (keypress)="keyPress($event)">
       </div>
 
@@ -69,6 +68,6 @@
         maxlength="2" required (keypress)="keyPress($event)"> -->
     </div>
 
-    <button type="submit" class="btn btn-dark" routerLink="/home-page">Proceed to book</button>
+    <button type="submit" class="btn btn-dark">Proceed to book</button>
   </div>
 </form>
