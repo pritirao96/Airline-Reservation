@@ -35,6 +35,7 @@ export class UserLoginComponent implements OnInit {
         sessionStorage.setItem('email', this.users.email);
         sessionStorage.setItem('password', this.users.password);
         sessionStorage.setItem('name',this.response.name);
+        sessionStorage.setItem('userId',this.response.userid);
         
         this.router.navigate(["/seats-page"]);
       }

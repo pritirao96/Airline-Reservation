@@ -36,14 +36,13 @@ export class UserBookingComponent implements OnInit {
     }
   }
   store() {
-    let user_id = sessionStorage.getItem('');
-    let url = 'http://localhost:8084/book/flight/passenger';
+    let user_id = +sessionStorage.getItem('userId');
+    let url = 'http://localhost:8084/book/flight/passenger/';
     for(let p of this.passengers){
       console.log(p);
     }
-    console.log("=========" + JSON.stringify(this.passengers));
     this.r.navigate(['confirm-page']);
-    this.pr.sendToServer(url, this.passengers).subscribe(data => {
+    this.pr.sendToServer(url+user_id, this.passengers).subscribe(data => {
     });
   }
 }
