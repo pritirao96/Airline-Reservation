@@ -25,12 +25,10 @@ export class UserLoginComponent implements OnInit {
   }
 
   login() {
-    //window.localStorage.setItem('userDetails',JSON.stringify({token: this.users , name:'userDetails'}))
     console.log(this.users);
     this.rs.retriveFromServer(this.users).subscribe(data => {
       console.log(data);
       this.response = data;
-      //var check=this.response;
 
       
       if(this.response.status == "Verified"){
@@ -43,15 +41,6 @@ export class UserLoginComponent implements OnInit {
       else{
          this.router.navigate(["/user_login"]);
       }
-
-      // if(check == "true") {
-      //   this.router.navigate(['./']);
-      // }
-      // else{
-      //   localStorage.removeItem('userDetails');
-      //   this.router.navigate(['./user_login']);
-
-      // }
     });
   }
 }
