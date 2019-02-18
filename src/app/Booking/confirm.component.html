@@ -9,17 +9,15 @@
             <th>No.of Seats</th>
             <th>Email</th>
             <th>Flight Number</th>
-            <th>Date of Booking</th>
             <th>Fare</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor='let u of confirm'>
-            <td>{{u.seats}}</td>
-            <td>{{u.email}}</td>
-            <td>{{u.flightNumber}}</td>
-            <td>{{u.dateOfBooking}}</td>
-            <td>{{u.Tfare*seats}}</td>
+          <tr>
+            <td>{{seats}}</td>
+            <td>{{email}}</td>
+            <td>{{flightNumber}}</td>
+            <td>{{pricePerSeat*seats}}</td>
           </tr>
         </tbody>
       </table>

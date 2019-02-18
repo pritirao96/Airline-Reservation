@@ -12,7 +12,7 @@ export class ConfirmBookingComponent implements OnInit {
   confirm: ConfirmBooking[];
   url11 = "http://localhost:8084/show/flight/";
   response: string;
-  flightNumber: string;
+  flightNumber: number;
   email: string;
   pricePerSeat: string;
   seats: string;
@@ -23,7 +23,7 @@ export class ConfirmBookingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.flightNumber = sessionStorage.getItem('flightNumber');
+    this.flightNumber = +sessionStorage.getItem('flightNo');
       this.email = sessionStorage.getItem('email');
       this.pricePerSeat = sessionStorage.getItem('flight-fare');
       this.seats = sessionStorage.getItem('seats');
